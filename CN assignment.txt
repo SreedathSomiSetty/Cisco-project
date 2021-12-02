@@ -1,0 +1,98 @@
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface 
+% Incomplete command.
+Router(config)#interface FastEthernet0/0
+Router(config-if)#ip address 
+% Incomplete command.
+Router(config-if)#exit
+Router(config)#interface FastEthernet0/0
+Router(config-if)#ip address 172.16.1.
+                             ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#exit
+Router(config)#interface FastEthernet0/0
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#interface FastEthernet0/0
+Router(config-if)#ip address 172.16.1.1 ?
+  A.B.C.D  IP subnet mask
+Router(config-if)#ip address 172.16.1.1 255.255.255.0
+Router(config-if)#no shut
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#interface FastEthernet0/0
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#interface FastEthernet0/0
+Router(config-if)#hostname RTA
+RTA(config)#
+RTA(config)#service password-encryption
+RTA(config)#
+RTA(config)#
+RTA(config)#interface FastEthernet0/0
+RTA(config-if)#hostname RTA
+RTA(config)#service password-encryption
+RTA(config)#enable secret 18bce7294sreedath
+RTA(config)#ip domain-name ?
+  WORD  Default domain name
+RTA(config)#ip domain-name RTA.com
+RTA(config)#username sreedath password ?
+  0     Specifies an UNENCRYPTED password will follow
+  7     Specifies a HIDDEN password will follow
+  LINE  The UNENCRYPTED (cleartext) user password
+RTA(config)#username sreedath password 18bce7294
+RTA(config)#crypto key generate rsa
+The name for the keys will be: RTA.RTA.com
+Choose the size of the key modulus in the range of 360 to 2048 for your
+  General Purpose Keys. Choosing a key modulus greater than 512 may take
+  a few minutes.
+
+How many bits in the modulus [512]: 1024
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
+
+RTA(config)#
+*Mar 1 0:9:37.603: %SSH-5-ENABLED: SSH 1.99 has been enabled
+RTA(config)#
+RTA(config)#
+RTA(config)#login ?
+% Unrecognized command
+RTA(config)#login block_for 180 attempts 4 within 120
+               ^
+% Invalid input detected at '^' marker.
+	
+RTA(config)#login block_for 180 attempts 4 within 120 
+               ^
+% Invalid input detected at '^' marker.
+	
+RTA(config)#line
+% Incomplete command.
+RTA(config)#line vty 0 4
+RTA(config-line)#transport input ssh
+RTA(config-line)#login local
+RTA(config-line)#^Z
+                 ^
+% Invalid input detected at '^' marker.
+	
+RTA(config-line)#^Z
+RTA#
+%SYS-5-CONFIG_I: Configured from console by console
+
+RTA#copy running-config startup-config 
+Destination filename [startup-config]? yes
+%Error copying nvram:yes (Invalid argument)
+RTA#copy running-config startup-config 
+Destination filename [startup-config]? y
+%Error copying nvram:y (Invalid argument)
+RTA#copy running-config startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+RTA#
+RTA#
